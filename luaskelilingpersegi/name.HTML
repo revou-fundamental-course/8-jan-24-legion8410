@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitung Luas dan Keliling Persegi</title>
+  <link rel="stylesheet" href="huha.css">
+</head>
+<body>
+
+  <label for="sisiInput">Masukkan Panjang Sisi:</label>
+  <input type="number" id="sisiInput" placeholder="Panjang Sisi">
+
+  <button onclick="hitung()">Hitung</button>
+
+  <p id="hasilLuas"></p>
+  <p id="hasilKeliling"></p>
+
+  <script>
+    function hitung() {
+      var sisiPersegi = document.getElementById("sisiInput").value;
+
+      // Validasi input (pastikan input berupa angka)
+      if (isNaN(sisiPersegi)) {
+        alert("Masukkan panjang sisi yang valid");
+        return;
+      }
+
+      sisiPersegi = parseFloat(sisiPersegi);
+
+      var luasPersegi = hitungLuasPersegi(sisiPersegi);
+      var kelilingPersegi = hitungKelilingPersegi(sisiPersegi);
+
+      document.getElementById("hasilLuas").innerText = "Luas Persegi: " + luasPersegi;
+      document.getElementById("hasilKeliling").innerText = "Keliling Persegi: " + kelilingPersegi;
+    }
+
+    function hitungLuasPersegi(sisi) {
+      return sisi * sisi;
+    }
+
+    function hitungKelilingPersegi(sisi) {
+      return 4 * sisi;
+    }
+  </script>
+
+</body>
+</html>
